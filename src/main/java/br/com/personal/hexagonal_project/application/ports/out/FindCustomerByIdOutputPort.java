@@ -1,9 +1,11 @@
 package br.com.personal.hexagonal_project.application.ports.out;
 
-import java.util.Optional;
-
 import br.com.personal.hexagonal_project.application.core.domain.Customer;
 
+import java.util.Optional;
+
 public interface FindCustomerByIdOutputPort {
+
     Optional<Customer> find(String id);
+
 }

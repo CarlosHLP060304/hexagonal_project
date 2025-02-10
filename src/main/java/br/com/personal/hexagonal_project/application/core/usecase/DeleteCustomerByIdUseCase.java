@@ -1,27 +1,27 @@
 package br.com.personal.hexagonal_project.application.core.usecase;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import br.com.personal.hexagonal_project.application.ports.in.DeleteCustomerByIdInputPort;
 import br.com.personal.hexagonal_project.application.ports.in.FindCustomerByIdInputPort;
-import br.com.personal.hexagonal_project.application.ports.out.DeleteCustomerByOutputPort;
+import br.com.personal.hexagonal_project.application.ports.out.DeleteCustomerByIdOutputPort;
 
-public class DeleteCustomerByIdUseCase implements DeleteCustomerByIdInputPort{
-    
-    @Autowired
+public class DeleteCustomerByIdUseCase implements DeleteCustomerByIdInputPort {
+
     private final FindCustomerByIdInputPort findCustomerByIdInputPort;
 
-    @Autowired
-    private final DeleteCustomerByOutputPort deleteCustomerByOutputPort;
+    private final DeleteCustomerByIdOutputPort deleteCustomerByIdOutputPort;
 
-    public DeleteCustomerByIdUseCase(FindCustomerByIdInputPort findCustomerByIdInputPort, DeleteCustomerByOutputPort deleteCustomerByOutputPort){
+    public DeleteCustomerByIdUseCase(
+            FindCustomerByIdInputPort findCustomerByIdInputPort,
+            DeleteCustomerByIdOutputPort deleteCustomerByIdOutputPort
+    ) {
         this.findCustomerByIdInputPort = findCustomerByIdInputPort;
-        this.deleteCustomerByOutputPort = deleteCustomerByOutputPort;
+        this.deleteCustomerByIdOutputPort = deleteCustomerByIdOutputPort;
     }
 
     @Override
-    public void delete(String id){
+    public void delete(final String id) {
         findCustomerByIdInputPort.find(id);
-        deleteCustomerByOutputPort.delete(id);
+        deleteCustomerByIdOutputPort.delete(id);
     }
+
 }

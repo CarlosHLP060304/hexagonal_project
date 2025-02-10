@@ -1,33 +1,28 @@
 package br.com.personal.hexagonal_project.application.core.domain;
 
-
 public class Customer {
-    private String id;
-    private String name;
-    private Address address;
-    private String cpf;
-    private Boolean isValidCpf;
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-  
-
-    public Customer(){
+    public Customer() {
         this.isValidCpf = false;
     }
 
-    public Customer(String id, String name, Address address,String cpf ,Boolean isValidCpf) {
+    public Customer(String id, String name, Address address, String cpf, Boolean isValidCpf) {
         this.id = id;
         this.name = name;
         this.address = address;
-        this.isValidCpf = isValidCpf;
         this.cpf = cpf;
+        this.isValidCpf = isValidCpf;
     }
+
+    private String id;
+
+    private String name;
+
+    private Address address;
+
+    private String cpf;
+
+    private Boolean isValidCpf;
 
     public String getId() {
         return id;
@@ -51,6 +46,14 @@ public class Customer {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public Boolean getIsValidCpf() {

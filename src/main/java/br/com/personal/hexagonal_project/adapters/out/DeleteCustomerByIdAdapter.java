@@ -1,21 +1,19 @@
 package br.com.personal.hexagonal_project.adapters.out;
 
+import br.com.personal.hexagonal_project.adapters.out.repository.CustomerRepository;
+import br.com.personal.hexagonal_project.application.ports.out.DeleteCustomerByIdOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.personal.hexagonal_project.adapters.out.repository.CustomerRepository;
-import br.com.personal.hexagonal_project.application.ports.out.DeleteCustomerByOutputPort;
-
-
 @Component
-public class DeleteCustomerByIdAdapter implements DeleteCustomerByOutputPort{
+public class DeleteCustomerByIdAdapter implements DeleteCustomerByIdOutputPort {
 
     @Autowired
-    CustomerRepository customerRepository;
+    private CustomerRepository customerRepository;
 
     @Override
     public void delete(String id) {
-       customerRepository.deleteById(id);
+        customerRepository.deleteById(id);
     }
-    
+
 }

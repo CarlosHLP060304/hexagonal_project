@@ -1,14 +1,14 @@
 package br.com.personal.hexagonal_project.adapters.out;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import br.com.personal.hexagonal_project.adapters.out.repository.CustomerRepository;
 import br.com.personal.hexagonal_project.adapters.out.repository.mapper.CustomerEntityMapper;
 import br.com.personal.hexagonal_project.application.core.domain.Customer;
 import br.com.personal.hexagonal_project.application.ports.out.UpdateCustomerOutputPort;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class UpdateCustomerAdapter implements UpdateCustomerOutputPort{
-
+@Component
+public class UpdateCustomerAdapter implements UpdateCustomerOutputPort {
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -18,8 +18,8 @@ public class UpdateCustomerAdapter implements UpdateCustomerOutputPort{
 
     @Override
     public void update(Customer customer) {
-       var customerEntity = customerEntityMapper.toCustomerEntity(customer);
-       customerRepository.save(customerEntity);
+        var customerEntity = customerEntityMapper.toCustomerEntity(customer);
+        customerRepository.save(customerEntity);
     }
-        
+
 }
