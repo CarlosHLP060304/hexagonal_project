@@ -6,7 +6,7 @@ import com.tngtech.archunit.lang.ArchRule;
 
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
-@AnalyzeClasses(packages = "com.arantes.hexagonal")
+@AnalyzeClasses(packages = "br.com.personal.hexagonal_project")
 public class NamingConventionTest {
 
     @ArchTest
@@ -118,7 +118,7 @@ public class NamingConventionTest {
             .that()
             .haveNameMatching(".*Config")
             .should()
-            .resideInAPackage("..hexagonal.config")
+            .resideInAPackage("..hexagonal_project.config")
             .as("Config classes should reside inside config package in hexagonal package");
 
     @ArchTest
